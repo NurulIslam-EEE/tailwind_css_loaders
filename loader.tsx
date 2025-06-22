@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
+type LoaderKey =
+  | "spinner"
+  | "dots"
+  | "pulse"
+  | "bars"
+  | "gradient"
+  | "squares"
+  | "wave"
+  | "dual"
+  | "morphing"
+  | "heart";
 
 const TailwindLoaders = () => {
   const [activeLoader, setActiveLoader] = useState('spinner');
 
-  const loaders = {
+  const loaders: Record<LoaderKey, { name: string; component: JSX.Element }> = {
     spinner: {
       name: 'Classic Spinner',
       component: (
